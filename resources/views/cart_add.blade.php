@@ -67,10 +67,10 @@
 
         </div>
         <div class="form-group">
-            <label>Discount</label>
+            <label>Discount Barcode</label>
             <select name="discount_id" class="form-control" required>
                 @foreach($discount as $p)
-                    <option value={{ $p['id'] }} >{{ $p['discount_percentage'] }}</option>
+                    <option value={{ $p['id'] }} >{{ $p['discount_code'] }}</option>
                 @endforeach
             </select>
             @if($errors->has('discount'))
