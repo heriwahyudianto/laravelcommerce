@@ -9,7 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-    	$product = Product::all();
+		//$product = Product:: all();
+		$product = Product::with(['cart'])->get();
     	return view('product', ['product' => $product]);
     }
     

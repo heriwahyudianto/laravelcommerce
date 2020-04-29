@@ -65,25 +65,35 @@
     </head>
     <body>
     <h1>Product</h1>
-    <a href="/product/add" class="btn btn-primary">Add Product</a>
+    <?php  //print_r($product[2]->cart);
+    //echo count($product[0]->cart) ?> 
     <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
-                <th>Name</th>
                 <th>Image</th>
+                <th>Name</th>
                 <th>Price</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="/product/add" class="btn btn-primary">Add Product</a>
+                </td>
+            </tr>
             @foreach($product as $p)
             <tr>
-                <td>{{ $p->name }}</td>
                 <td><img src={{ $p->image }} width="40" height="40" /></td>
+                <td>{{ $p->name }}</td>
                 <td>{{ $p->price }}</td>
                 <td>
                     <a href="/product/edit/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                    <a href="/product/delete/{{ $p->id }}" class="btn btn-danger">Delete</a>
+                    <?php if (count($p->cart) === 0) { ?>
+                        <a href="/product/delete/{{ $p->id }}" class="btn btn-danger">Delete</a>
+                    <?php } ?>
                 </td>
             </tr>
             @endforeach

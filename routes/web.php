@@ -16,7 +16,7 @@ Route::post('/product/store', 'ProductController@store');
 Route::get('/product/add', 'ProductController@add');
 Route::get('/product/edit/{id}', 'ProductController@edit');
 Route::put('/product/update/{id}', 'ProductController@update');
-Route::get('/product/delete/{id}', 'ProductController@delete');
+Route::get('/product/delete/{id}', 'ProductController@delete'); //TODO prevent detele if cart use the id
 Route::get('/product', 'ProductController@index');
 Route::get('/cart/add', 'CartController@add');
 Route::post('/cart/store', 'CartController@store');
